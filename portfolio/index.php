@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <h1>Portfolio</h1>
+        <h1>GavinStrikes Portfolio</h1>
     </header>
 
     <nav>
@@ -33,7 +33,7 @@
         <ul>
             <li><a href="https://oblivity.xyz" target="_blank">Oblivity x64 Executor For Roblox (private)</a></li>
             <li><a href="https://ixviixvi.github.io/company/" target="_blank">OAuth - Authentication Service</a></li>
-          
+            <li><a href="https://evon.cc/" target="_blank">Evon - Haven't exactly worked on it but contributed to it</a></li>
         </ul>
     </section>
 
@@ -49,11 +49,15 @@
     <section id="contact">
         <h2>Get in Touch</h2>
         <p>Want to chat? Shoot me an email: <a href="mailto:contact@oblivity.xyz">contact@oblivity.xyz</a></p>
-    </section>
+        <p>If you know me, message me on Discord! If you don't know my username, email me!</p>
 
+    </section>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Oblivity Software LLC</p>
-        <!-- Social Media Section -->
+        <p>Hosted on <a href="https://github.com/" style="color: lightblue;">Github</a> - Made by GavinStrikes</p>
+
+
+    
         <div class="social-media">
             <a href="https://twitter.com/GavinStrikes" target="_blank"><img src="twitter_icon.png" alt="Twitter Icon"></a>
             <a href="https://github.com/GavinCoded" target="_blank"><img src="github_icon.png" alt="GitHub Icon"></a>
