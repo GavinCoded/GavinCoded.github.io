@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            text-align: center;
+            background-color: #1e1e1e;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 3em;
+            color: #2196F3; /* Blue color */
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        label, input {
+            display: block;
+            margin: 15px auto;
+            color: #fff;
+            width: calc(100% - 30px);
+            box-sizing: border-box;
+        }
+        input {
+            padding: 15px;
+            border: 2px solid #2196F3;
+            border-radius: 8px;
+            background-color: #2b2b2b; /* Darker background */
+            color: #fff;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+            outline: none;
+            box-shadow: 0 0 12px rgba(33, 150, 243, 0.2);
+        }
+        input:focus {
+            border-color: #64B5F6; /* Lighter blue on focus */
+            box-shadow: 0 0 14px rgba(33, 150, 243, 0.4);
+            background-color: #333; /* Darker background on focus */
+        }
+        button {
+            background-color: #2196F3;
+            color: #fff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: calc(100% - 30px);
+            font-size: 1.2em;
+            margin-top: 15px;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 12px rgba(33, 150, 243, 0.2);
+        }
+        button:hover {
+            background-color: #1565C0; /* Darker blue on hover */
+            box-shadow: 0 8px 14px rgba(33, 150, 243, 0.4);
+            transform: translateY(-8px);
+        }
+        button:active {
+            transform: scale(0.98);
+        }
+        .loading-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+        .loading-circle {
+            border: 8px solid #fff;
+            border-top: 8px solid #2196F3;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .error-message {
+            color: #FF5252; /* Red color */
+            margin-top: 10px;
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .error-icon {
+            display: inline-block;
+            margin-right: 5px;
+            font-size: 1.2em;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        a {
+            color: #2196F3;
+            text-decoration: none;
+            font-size: 0.9em;
+            display: block;
+            margin-top: 15px;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #1565C0; /* Darker blue on hover */
+        }
+        .background-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre-big.png');
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background pattern -->
+<div class="background-pattern"></div>
+
+<div class="loading-container" id="loadingContainer">
+    <div class="loading-circle"></div>
+</div>
+
+<div class="login-container">
+    <h1>Oblivity</h1>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <div class="error-message" id="errorMessage">
+            <span class="error-icon">❌</span> Incorrect login. Please try again.
+        </div>
+
+        <button type="button" onclick="validateLogin()">Login</button>
+        <a href="#">Forgot Password?</a>
+    </form>
+</div>
+
+<script>
+    function validateLogin() {
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        var errorMessage = document.getElementById('errorMessage');
+        var loadingContainer = document.getElementById('loadingContainer');
+        
+        errorMessage.style.display = 'none';
+        loadingContainer.style.display = 'flex';
+
+        setTimeout(function() {
+            if (validateCredentials(username, password)) {
+                
+                document.cookie = "username=" + username + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+
+           
+                window.location.href = "f.html";
+            } else {
+                errorMessage.style.display = 'block';
+                loadingContainer.style.display = 'none';
+            }
+        }, 1500); 
+    }
+
+    function validateCredentials(username, password) {
+       
+        var validLogins = {
+            'ouz': '1234',
+            'GavinStrikes': '1234'
+           
+        };
+
+        return validLogins.hasOwnProperty(username) && validLogins[username] === password;
+    }
+</script>
+
+</body>
+</html>
