@@ -96,6 +96,8 @@
         <label for="message">Why you want oblivity:</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
+        <div class="h-captcha" data-sitekey="3b38a7e2-d756-452a-b590-7a9d5af765d3"></div>
+
         <button type="submit">Submit</button>
     </form>
 </div>
@@ -115,6 +117,7 @@
     </div>
 </div>
 
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
 <script>
     document.getElementById('applicationForm').addEventListener('submit', function(event) {
         event.preventDefault();
