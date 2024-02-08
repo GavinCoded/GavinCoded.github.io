@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oblivity Application</title>
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -96,7 +97,8 @@
         <label for="message">Why you want oblivity:</label>
         <textarea id="message" name="message" rows="4" required></textarea>
 
-        <div class="h-captcha" data-sitekey="3b38a7e2-d756-452a-b590-7a9d5af765d3"></div>
+        <!-- hCaptcha widget -->
+        <div class="h-captcha" data-sitekey="3b38a7e2-d756-452a-b590-7a9d5af765d3" required></div>
 
         <button type="submit">Submit</button>
     </form>
@@ -117,10 +119,16 @@
     </div>
 </div>
 
-<script src="https://hcaptcha.com/1/api.js" async defer></script>
 <script>
     document.getElementById('applicationForm').addEventListener('submit', function(event) {
         event.preventDefault();
+        
+        // Verify hCaptcha token
+        var hcaptchaToken = document.querySelector('.h-captcha [name="h-captcha-response"]').value;
+        if (!hcaptchaToken) {
+            alert('Please complete the captcha.');
+            return;
+        }
 
         var formData = new FormData(this);
 
@@ -136,9 +144,9 @@
                     document.getElementById('successOverlay').classList.remove('show');
                 }, 7000); // Hide after 7 seconds
             } else {
-                document.getElementById('successOverlay').classList.add('show');
+                document.getElementById('errorOverlay').classList.add('show');
                 setTimeout(function(){
-                    document.getElementById('successOverlay').classList.remove('show');
+                    document.getElementById('errorOverlay').classList.remove('show');
                 }, 7000); // Hide after 7 seconds
             }
         };
