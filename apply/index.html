@@ -130,6 +130,9 @@
             return;
         }
 
+        // Show success overlay immediately
+        document.getElementById('successOverlay').classList.add('show');
+
         var formData = new FormData(this);
 
         var xhr = new XMLHttpRequest();
@@ -137,13 +140,7 @@
         xhr.setRequestHeader('Content-Type', 'application/json');
 
         xhr.onload = function () {
-            if (xhr.status === 200) {
-                document.getElementById('successOverlay').classList.add('show');
-                document.getElementById('applicationForm').reset();
-                setTimeout(function(){
-                    document.getElementById('successOverlay').classList.remove('show');
-                }, 7000); // Hide after 7 seconds
-            } else {
+            if (xhr.status !== 200) {
                 document.getElementById('errorOverlay').classList.add('show');
                 setTimeout(function(){
                     document.getElementById('errorOverlay').classList.remove('show');
