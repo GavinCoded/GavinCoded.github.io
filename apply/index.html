@@ -84,6 +84,7 @@
 
 <div class="container">
     <h1>Oblivity Application</h1>
+    <p>In order to purchase Oblivity, you must apply. Please put effort into it!</p>
     <form id="applicationForm" action="#" method="POST">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -112,6 +113,13 @@
     </div>
 </div>
 
+<div class="overlay" id="errorOverlay">
+    <div class="overlay-text">
+        <p>There was an error submitting the application.</p>
+        <p>Please try again later.</p>
+    </div>
+</div>
+
 <script>
     document.getElementById('applicationForm').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -131,6 +139,15 @@
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://discord.com/api/webhooks/1095462233233969354/KpwfTQWJo9aqudF238I8KByRw1tQps_5es9pfVXtyl5yhN9ZvrAdDSQ_JZSbsDGskk3O', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onload = function () {
+            if (xhr.status !== 200) {
+                document.getElementById('errorOverlay').classList.add('show');
+                setTimeout(function(){
+                    document.getElementById('errorOverlay').classList.remove('show');
+                }, 7000); // Hide after 7 seconds
+            }
+        };
 
         var data = {
             content: "New application received!",
