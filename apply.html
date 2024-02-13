@@ -194,9 +194,9 @@
       <p>One Time Payment</p>
     </div>
     <div class="payment-methods">
-      <button class="payment-method paypal" onclick="showModal()"><i class="fab fa-paypal payment-icon"></i> PayPal</button>
-      <button class="payment-method credit-card" onclick="showModal()"><i class="far fa-credit-card payment-icon"></i> Credit Card</button>
-      <button class="payment-method crypto" onclick="showModal()"><i class="fab fa-bitcoin payment-icon"></i> Crypto</button>
+      <button class="payment-method paypal" onclick="redirectPayPal()"><i class="fab fa-paypal payment-icon"></i> PayPal</button>
+      <button class="payment-method credit-card" onclick="redirectCard()"><i class="far fa-credit-card payment-icon"></i> Credit Card</button>
+      <button class="payment-method crypto" onclick="redirectToSellix()"><i class="fab fa-bitcoin payment-icon"></i> Crypto</button>
     </div>
     <p class="disclaimer">By purchasing, you agree to Oblivity Software LLC's terms of service.</p>
 
@@ -225,6 +225,18 @@
 
   function hideModal() {
     document.getElementById('modalBackground').style.display = 'none';
+  }
+
+  function redirectPayPal() {
+    window.location.href = 'https://discord.gg/utmacXs6Mw';
+  }
+
+  function redirectCard() {
+    window.location.href = 'https://discord.gg/utmacXs6Mw';
+  }
+
+  function redirectToSellix() {
+    window.location.href = 'https://oblivitysoftwareltd.mysellix.io/product/oblivity-software-llc';
   }
 </script>
 </body>
