@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+          font-family: 'Roboto', sans-serif;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          overflow: hidden;
+          background: linear-gradient(135deg, #1a1a1a, #121212);
+          animation: animateBackground 20s linear infinite;
+        }
+
+        .panel {
+          background-color: rgba(34, 34, 34, 0.9);
+          border-radius: 10px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+          padding: 30px;
+          width: 80%;
+          max-width: 500px;
+        }
+
+        .main {
+          text-align: center;
+          color: #fff;
+        }
+
+        .product-details {
+          margin-bottom: 30px;
+        }
+
+        .product-title {
+          font-size: 24px;
+          margin-bottom: 15px;
+          font-weight: bold;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-price {
+          font-weight: bold;
+          margin-bottom: 20px;
+          color: #f2c039;
+          font-size: 20px;
+        }
+
+        .disclaimer {
+          font-size: 12px;
+          margin-top: 30px;
+          color: #ccc;
+          text-align: center;
+        }
+
+        .title {
+          font-size: 36px;
+          margin-bottom: 20px;
+          font-weight: bold;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .download-button {
+          border: 2px solid transparent;
+          border-radius: 6px;
+          cursor: pointer;
+          margin: 0 10px;
+          transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          font-size: 16px;
+          text-transform: uppercase;
+          padding: 12px 24px;
+          font-weight: bold;
+          color: #fff;
+          background-color: #007bff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          text-decoration: none;
+        }
+
+        .download-button:hover {
+          filter: brightness(1.2);
+          transform: translateY(-3px);
+          background-color: #0056b3;
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-background {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 9999;
+        }
+
+        .modal-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+          text-align: center;
+        }
+
+        .close-icon {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          font-size: 20px;
+          color: #888;
+        }
+
+        .loading {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 9998;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .loading-spinner {
+          border: 4px solid rgba(255, 255, 255, 0.3);
+          border-top: 4px solid #fff;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div class="panel">
+    <div class="main">
+        <h2 class="title">Download Oblivity</h2>
+        <div class="product-details">
+            <h3 class="product-title">Oblivity External</h3>
+            <p class="product-price">Last updated 2/13/2024</p>
+        </div>
+        <a href="killfaggotsnow" class="download-button">Download Now</a>
+        <p class="disclaimer">By downloading, you agree to our terms of service.</p>
+    </div>
+</div>
+
+<div class="modal-background" id="modalBackground" style="display: none;">
+    <div class="modal-content">
+        <span class="close-icon" onclick="hideModal()">&times;</span>
+        <p>Oblivity is not available to purchase yet. Please check back later!</p>
+    </div>
+</div>
+
+<div class="loading" id="loading">
+    <div class="loading-spinner"></div>
+</div>
+
+<script>
+    function showModal() {
+      document.getElementById('loading').style.display = 'flex';
+      setTimeout(() => {
+        document.getElementById('modalBackground').style.display = 'flex';
+        document.getElementById('loading').style.display = 'none';
+      }, 3000);
+    }
+
+    function hideModal() {
+      document.getElementById('modalBackground').style.display = 'none';
+    }
+</script>
+</body>
+</html>
