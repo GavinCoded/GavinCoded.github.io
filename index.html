@@ -3,178 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oblivity | Home</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Oblivity</title>
+    <link rel="icon" type="image/png" href="faviconV2.png">
     <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #1a1a1a;
-            color: #fff;
-        }
-
-        nav {
-            background-color: #161616;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-        }
-
-        nav .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
-        nav ul li {
-            margin: 0 15px;
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            cursor: pointer; 
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: #00aaff;
-        }
-
-        .header {
-            background: url('test.jpg') no-repeat center center/cover;
-            height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .header h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 18px;
-        }
-
-        .header .buttons {
-            margin-top: 20px;
-        }
-
-        .header .buttons a {
-            text-decoration: none;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
-            transition: background-color 0.3s;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .header .buttons a:hover {
-            background-color: #0056b3;
-        }
-
-        .header .buttons a i {
-            margin-right: 8px;
-        }
-
-        .about {
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            font-size: 18px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .login-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #007bff;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s; 
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .login-button i {
-            margin-right: 8px;
-        }
-
-        .login-button:hover {
-            background-color: #0056b3;
-            color: #fff; 
-        }
-
-    
-        footer {
-            background-color: #161616;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            bottom: 0;
+        .background {
+            background-image: url('image.png');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
             width: 100%;
         }
-
-        footer a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        footer a:hover {
-            color: #00aaff;
-        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.addEventListener('click', () => {
+                window.location.href = 'https://oblivity.wtf';
+            });
+        });
+    </script>
 </head>
 <body>
-    <nav>
-        <div class="logo">Oblivity</div>
-        <ul>
-            <li><a href="https://oblivity.wtf/dashboard/login.php" class="login-button"><i class="fas fa-sign-in-alt"></i> Login</a></li>
-        </ul>
-    </nav>
-    <div class="header">
-        <div>
-            <h1>Oblivity External</h1>
-            <p>Taking Roblox externals to the next level</p>
-            <div class="buttons">
-                <a href="https://oblivity.wtf/apply.html"><i class="fas fa-shopping-cart"></i> Purchase</a>
-                <a href="https://discord.gg/mEb2C8ZNAZ"><i class="fab fa-discord"></i> Discord</a>
-                <a href="https://t.me/oblivityupdates"><i class="fab fa-telegram"></i> Telegram</a>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>Oblivity is a <a href="https://gavinstrikes.wtf" target="_blank">gavinstrikes.wtf</a> product</p>
-        <p>&copy; Oblivity Software LLC 2022 - 2024. All rights reserved.</p>
-
-    </footer>
-
+    <div class="background"></div>
 </body>
 </html>
